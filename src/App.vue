@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Iniciando o Vue"/>
+  <div>
+<h1>{{ titulo }}</h1>
+
+<ul>
+
+<li v-for="foto of fotos">
+  <img :src="foto.url" :alt="foto.titulo">
+</li>
+
+</ul>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+
+  data() {
+
+    return {
+
+      titulo: 'AluraPic',
+      fotos: [
+      {
+        url: 'https://fotografiamais.com.br/wp-content/uploads/2018/09/fotos-de-cachorro-existe-mercado.jpg',
+        titulo: 'cachorro'
+      },
+      {
+        url: 'https://fotografiamais.com.br/wp-content/uploads/2018/09/fotos-de-cachorro-existe-mercado.jpg',
+        titulo: 'cachorrão'
+      }
+    ]
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
