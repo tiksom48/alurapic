@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1 class="centralizado">{{ titulo }}</h1>
-
     <input
       type="search"
       class="filtro"
@@ -16,11 +15,17 @@
         v-bind:key="foto.url"
       >
         <meu-painel :titulo="foto.titulo">
-          <imagem-responsiva :url="foto.url" :titulo="foto.titulo" />
+          <imagem-responsiva
+            v-meu-transform:scale.animate="1.2"
+            :url="foto.url"
+            :titulo="foto.titulo"
+          />
           <meu-botao
+            rotulo="remover"
             tipo="button"
-            rotulo="REMOVER"
-            @click.native="remove(foto)"
+            :confirmacao="true"
+            @botaoAtivado="remove(foto)"
+            estilo="perigo"
           />
         </meu-painel>
       </li>
@@ -61,10 +66,8 @@ export default {
 
   methods: {
     remove(foto) {
-      if (confirm("Confirma Operação?")) {
-        alert("Remover a foto!!" + foto.titulo);
-      }
-    }
+      alert("Remover a foto!!" + foto.titulo);
+    },
   },
 
   created() {
@@ -75,7 +78,7 @@ export default {
         (fotos) => (this.fotos = fotos),
         (err) => console.log(err)
       );
-  }
+  },
 };
 </script>
 
