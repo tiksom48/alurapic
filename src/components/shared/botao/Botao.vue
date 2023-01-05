@@ -1,7 +1,12 @@
 <template>
-  <div :class="estiloDoBotao">
-    <button @click="disparaAcao()" class="botao" :type="tipo">{{ rotulo }}</button>
-  </div>
+  <button
+    @click="disparaAcao()"
+    class="botao"
+    :class="estiloDoBotao"
+    :type="tipo"
+  >
+    {{ rotulo }}
+  </button>
 </template>
 
 <script>
@@ -35,11 +40,11 @@ export default {
   },
 
   computed: {
-    
     estiloDoBotao() {
       // se o valor é padrão ou não passou nada para estilo
-      if (this.estilo == "botao-padrao") return "botao botao-padrao";
-      if (this.estilo == "botao-perigo") return "botao botao-perigo";
+      if (this.estilo == "padrao") return "botao botao-padrao";
+
+      if (this.estilo == "perigo") return "botao botao-perigo";
     },
   },
 };
