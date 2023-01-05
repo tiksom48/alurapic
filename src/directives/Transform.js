@@ -1,7 +1,7 @@
 import Vue from "vue";
 
 Vue.directive("meu-transform", {
-  bind(el, binding, vnode) {
+  bind(el, binding) {
     let current = 0;
 
     el.addEventListener("dblclick", function () {
