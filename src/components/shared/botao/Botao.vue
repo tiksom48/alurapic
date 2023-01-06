@@ -38,28 +38,32 @@ export default {
     
    // eslint-disable-next-line 
     estiloDoBotao() {
-      // se o valor é padrão ou não passou nada para estilo
-      if (this.estilo == "botao-padrao") return "botao botao-padrao";
-      if (this.estilo == "botao-perigo") return "botao botao-perigo";
-    },
-  },
+     
+      if (this.estilo == 'padrao' || !this.estilo) return 'botao-padrao';
+      if (this.estilo == 'perigo') return 'botao-perigo';
+    }
+  }
 };
 </script>
 
-<style>
-.botao {
-  display: inline-block;
-  padding: 10px;
-  border-radius: 3px;
-  margin: 10px;
-  font-size: 1.2em;
-}
-.botao-perigo {
-  background: firebrick;
-  color: white;
-}
-.botao-padrao {
-  background: darkcyan;
-  color: white;
-}
+<style scoped lang="scss">
+    $cor: firebrick;
+
+    .botao {
+        display: inline-block;
+        padding: 10px;
+        border-radius: 3px;
+        margin: 10px;
+        font-size: 1.2em;
+    }
+
+    .botao-perigo {
+        background: $cor;
+        color: white;
+    }
+
+    .botao-padrao {
+        background: darkcyan;
+        color: white;
+    }
 </style>
