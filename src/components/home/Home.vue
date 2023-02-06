@@ -46,7 +46,6 @@ export default {
   data() {
 
     return {
-
       titulo: 'Alurapic', 
       fotos: [], 
       filtro: '',
@@ -57,7 +56,6 @@ export default {
   computed: {
 
     fotosComFiltro() {
-
       if(this.filtro) {
         let exp = new RegExp(this.filtro.trim(), 'i');
         return this.fotos.filter(foto => exp.test(foto.titulo));
