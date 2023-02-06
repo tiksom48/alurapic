@@ -9,7 +9,6 @@ import msg from './pt_BR';
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/css/teste.css';
 import './assets/js/teste.js';
-
 import 'jquery/dist/jquery.js';
 import 'bootstrap/dist/js/bootstrap.js';
 
