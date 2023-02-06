@@ -1,54 +1,55 @@
 <template>
-  <div :class="estiloDoBotao">
-    <button @click="disparaAcao()" class="botao" :type="tipo">{{ rotulo }}</button>
-  </div>
+    <button @click="disparaAcao()" class="botao" :class="estiloDoBotao" :type="tipo">{{ rotulo }}</button>
 </template>
 
 <script>
+
 export default {
-  props: {
-    tipo: {
-      type: String,
-      required: true,
+
+    props: {
+
+        tipo: {
+            required: true, 
+            type: String
+        },
+
+        rotulo: {
+            required: true, 
+            type: String
+        }, 
+
+        confirmacao: Boolean,
+        estilo: String
+
     },
 
-    rotulo: {
-      type: String,
-      required: true,
-    },
+    methods: {
 
-    confirmacao: Boolean,
-    estilo: String,
-  },
+        disparaAcao() {
 
-  methods: {
-    disparaAcao() {
-      console.log(typeof this.confirmacao);
-      if (this.confirmacao) {
-        if (confirm("Confirma operacao?")) {
-          this.$emit("botaoAtivado");
+            if(this.confirmacao) {
+                if(confirm('Confirma operação?')) {
+                    this.$emit('botaoAtivado');
+                }
+                return;
+            }
+            this.$emit('botaoAtivado');
         }
-        return;
-      }
-      this.$emit("botaoAtivado");
     },
-  },
 
-  computed: {
-    
-   // eslint-disable-next-line 
-    estiloDoBotao() {
-     
-      if (this.estilo == 'padrao' || !this.estilo) return 'botao-padrao';
-      if (this.estilo == 'perigo') return 'botao-perigo';
+    computed: {
+
+        estiloDoBotao() {
+
+            if(this.estilo == 'padrao' || !this.estilo) return 'botao-padrao';
+            if(this.estilo == 'perigo') return 'botao-perigo';
+        }
+
     }
-  }
-};
+}
 </script>
 
-<style scoped lang="scss">
-    $cor: firebrick;
-
+<style>
     .botao {
         display: inline-block;
         padding: 10px;
@@ -58,7 +59,7 @@ export default {
     }
 
     .botao-perigo {
-        background: $cor;
+        background: firebrick;
         color: white;
     }
 
