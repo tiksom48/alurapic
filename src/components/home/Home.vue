@@ -23,7 +23,6 @@
             estilo="perigo"/>
           
         </meu-painel>
-
       </li>
     </ul>
   </div>
